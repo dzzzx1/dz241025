@@ -12,30 +12,27 @@ class dz12 {
     }
 
     private void createAndShowGUI() {
-        // Создаем главное окно
         frame = new JFrame("Цвет настроения");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
         frame.setLayout(new BorderLayout());
 
-        // Создаем панель для кнопок и делаем ее прозрачной
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-        buttonPanel.setOpaque(false); // Важно: делаем панель прозрачной
+        buttonPanel.setOpaque(false);
 
-        // Создаем метку для отображения настроения
+
         moodLabel = new JLabel("Выберите цвет настроения", SwingConstants.CENTER);
         moodLabel.setFont(new Font("Arial", Font.BOLD, 16));
         moodLabel.setOpaque(true);
         moodLabel.setBackground(Color.LIGHT_GRAY);
         moodLabel.setPreferredSize(new Dimension(400, 50));
 
-        // Создаем кнопки
+
         JButton redButton = createColorButton("Красный", Color.RED);
         JButton blueButton = createColorButton("Синий", Color.BLUE);
         JButton greenButton = createColorButton("Зелёный", Color.GREEN);
 
-        // Добавляем компоненты
         buttonPanel.add(redButton);
         buttonPanel.add(blueButton);
         buttonPanel.add(greenButton);
@@ -49,7 +46,7 @@ class dz12 {
         JButton button = new JButton(colorName);
         button.setPreferredSize(new Dimension(100, 40));
 
-        // ЗАДАНИЕ 1: Первый слушатель - меняет цвет фона окна и текст
+        // 1
         ActionListener colorChangeListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,7 +58,7 @@ class dz12 {
             }
         };
 
-        // ЗАДАНИЕ 2: Второй слушатель - выводит в консоль
+        // 2
         ActionListener consoleListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,7 +66,7 @@ class dz12 {
             }
         };
 
-        // Добавляем оба слушателя к кнопке
+
         button.addActionListener(colorChangeListener);
         button.addActionListener(consoleListener);
 

@@ -14,17 +14,17 @@ class dz3 {
     }
 
     private void createAndShowGUI() {
-        // Создаем главное окно
+
         frame = new JFrame("Реакция на события мыши");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 200);
         frame.setLayout(new FlowLayout());
 
-        // Создаем кнопку
+
         JButton button = new JButton("Наведи на меня");
         button.setPreferredSize(new Dimension(150, 50));
 
-        // ActionListener для нажатия кнопки
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,22 +32,20 @@ class dz3 {
             }
         });
 
-        // MouseListener для наведения мыши
+
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                // Создаем и показываем всплывающее окно
                 showPopup();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                // Скрываем всплывающее окно
                 hidePopup();
             }
         });
 
-        // Создаем всплывающее окно (изначально невидимое)
+
         createPopup();
 
         frame.add(button);
@@ -55,7 +53,7 @@ class dz3 {
     }
 
     private void createPopup() {
-        popup = new JDialog(frame, "Внимание!", false);
+        popup = new JDialog(frame);
         popup.setLayout(new FlowLayout());
         popup.add(new JLabel("Ты навёл курсор на кнопку!"));
         popup.setSize(250, 100);
